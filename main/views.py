@@ -13,5 +13,5 @@ def seeOffers(request):
     return HttpResponse('See Offers')
 
 
-def registerWorkplace(request):
+def placeVacancy(request):
     return HttpResponse('Register Workplace')

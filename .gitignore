@@ -1,2 +1,4 @@
 venv
 .idea
+JobAgency/__pycache__/
+*.pyc
