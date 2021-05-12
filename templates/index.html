@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Job Agency | Home</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Article-List.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Social-Icons.css' %}">
+</head>
+
+<body>
+    <section class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Job Agency</h2>
+                <p class="text-center"></p>
+            </div>
+            <div class="row articles">
+                <div class="col-sm-6 col-md-4 item"><a href="{% url 'place-resume' %}"><img class="img-fluid" src="{% static '/img/desk.jpg' %}"></a>
+                    <h3 class="name">Place Resume</h3>
+                    <p class="description">Place your detailed resumes so&nbsp;employer can watch it<br><br><br></p><a class="action" href="{% url 'place-resume' %}"><i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><a href="{% url 'see-offers' %}"><img class="img-fluid" src="{% static '/img/building.jpg' %}"></a>
+                    <h3 class="name">See Job Offers</h3>
+                    <p class="description">Find the job of your dream.<br>See what other employers&nbsp;offer<br><br></p><a class="action" href="{% url 'see-offers' %}"><i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><a href="{% url 'register-workplace' %}"><img class="img-fluid" src="{% static '/img/loft.jpg' %}"></a>
+                    <h3 class="name">Register Workplace</h3>
+                    <p class="description">If you are the emloyer, pleace register your company so people can watch your offers and you can see their resumes</p><a class="action" href="{% url 'register-workplace' %}"><i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <footer class="footer-basic">
+            <div class="social"><a href="https://www.instagram.com"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">JobAgency © 2021</p>
+        </footer>
+    </section>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
