@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
+from django.contrib import messages
+
 
 def register(request):
     if request.method == 'POST':
@@ -26,11 +28,12 @@ def logIn(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        u = User.objects.get(email=email, password=password)
-
-        if u is not None:
+        try:
+            u = User.objects.get(email=email, password=password)
             login(request, u)
             return redirect('index')
+        except:
+            messages.info(request, 'Email or password is incorrect!')
 
     return render(request, 'login.html')
 
