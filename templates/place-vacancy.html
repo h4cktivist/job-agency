@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Job Agency | Place Vacancy</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Social-Icons.css' %}">
+</head>
+
+
+<body>
+    <section class="register-photo">
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <h2 class="text-center"><strong>Place </strong>your <strong>vacancy.</strong></h2>
+                <h5 class="text-center">Employer: {{ request.user.first_name }} {{ request.user.last_name }}</h5>
+
+                <div class="mb-3"><input class="form-control" type="text" name="company" placeholder="Company name"></div>
+                <div class="mb-3"><input class="form-control" type="text" name="position" placeholder="Position you are looking for"></div>
+                <div class="mb-3"><input class="form-control" type="text" name="adress" placeholder="Company adress"></div>
+                <div class="mb-3"><textarea class="form-control" type="text" name="desc" placeholder="Write about company and requirements"></textarea></div>
+                <div class="mb-3"><input class="form-control" type="text" name="contact" placeholder="Contact information"></div>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Place Vacancy</button></div>
+
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-basic">
+            <div class="social"><a href="https://www.instagram.com"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'login' %}">Log In</a></li>
+                <li class="list-inline-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                <li class="list-inline-item"><a href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+            <p class="copyright">JobAgency © 2021</p>
+        </footer>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
