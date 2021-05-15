@@ -29,8 +29,13 @@ def placeResume(request):
     return render(request, 'place-resume.html')
 
 
-def seeOffers(request):
-    return HttpResponse('See Offers')
+def seeVacancies(request):
+    vacancies = Vacancy.objects.order_by('-date')
+
+    context = {
+        'vacancies': vacancies
+    }
+    return render(request, 'see-vacancies.html', context)
 
 
 def placeVacancy(request):
@@ -38,12 +43,13 @@ def placeVacancy(request):
         employer = request.user
         company = request.POST.get('company')
         position = request.POST.get('position')
+        salary = request.POST.get('salary')
         desc = request.POST.get('desc')
         adress = request.POST.get('adress')
         contact = request.POST.get('contact')
         date = timezone.now()
 
-        vacancy = Vacancy(employer=employer, company=company, position=position,
+        vacancy = Vacancy(employer=employer, company=company, position=position, salary=salary,
                           desc=desc, adress=adress, contact=contact, date=date)
         vacancy.save()
         return redirect('index')

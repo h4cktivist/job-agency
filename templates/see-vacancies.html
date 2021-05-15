@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Job Agency | Home</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Article-List.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Social-Icons.css' %}">
+</head>
+
+<body>
+    <section class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Job Agency</h2>
+                    <h2 class="text-center">Look for vacancies</h2>
+                <div class="input-group">
+                  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                  <button type="button" class="btn btn-outline-primary">Find</button>
+                </div>
+                <br>
+            </div>
+
+        {% for v in vacancies %}
+            <div class="card">
+                <h5 align="center" class="card-header">{{ v }}</h5>
+                <div class="card-body">
+                  <p class="card-text">{{ v.desc }}</p>
+                  <span class="badge rounded-pill bg-info text-dark">{{ v.salary }}</span>
+                  <a href="#" class="btn btn-outline-primary btn-sm">Respond</a>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+
+        <footer class="footer-basic">
+            <div class="social"><a href="https://www.instagram.com"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'login' %}">Log In</a></li>
+                <li class="list-inline-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                <li class="list-inline-item"><a href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+            <p class="copyright">JobAgency © 2021</p>
+        </footer>
+    </section>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

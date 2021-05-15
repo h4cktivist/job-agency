@@ -26,10 +26,11 @@ class Vacancy(models.Model):
     employer = models.ForeignKey(User, on_delete=models.CASCADE)
     company = models.CharField('Company name', max_length=100)
     position = models.CharField('Position', max_length=70)
+    salary = models.TextField('Salary', default='Salary not specified')
     desc = models.TextField('Description')
     adress = models.CharField('Adress of company', max_length=70)
     contact = models.CharField('Contact data', max_length=100)
     date = models.DateTimeField('Date of placing')
 
     def __str__(self):
-        return f'{self.company} - {self.position}'
+        return f'{self.company} is looking for {self.position}'
