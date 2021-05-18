@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.utils import timezone
 
+from django.contrib.auth.decorators import login_required
+
 from .models import Resume, Vacancy
 
 
@@ -8,6 +10,7 @@ def index(request):
     return render(request, 'index.html')
 
 
+@login_required(login_url='login')
 def placeResume(request):
     if request.method == 'POST':
         author = request.user
@@ -29,6 +32,7 @@ def placeResume(request):
     return render(request, 'place-resume.html')
 
 
+@login_required(login_url='login')
 def placeVacancy(request):
     if request.method == 'POST':
         employer = request.user
