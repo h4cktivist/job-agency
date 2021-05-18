@@ -29,15 +29,6 @@ def placeResume(request):
     return render(request, 'place-resume.html')
 
 
-def seeVacancies(request):
-    vacancies = Vacancy.objects.order_by('-date')
-
-    context = {
-        'vacancies': vacancies
-    }
-    return render(request, 'see-vacancies.html', context)
-
-
 def placeVacancy(request):
     if request.method == 'POST':
         employer = request.user
@@ -55,3 +46,33 @@ def placeVacancy(request):
         return redirect('index')
 
     return render(request, 'place-vacancy.html')
+
+
+def seeVacancies(request):
+    if request.method == 'POST':
+        search = request.POST.get('search')
+        vacancies = Vacancy.objects.filter(position__contains=search)
+
+    else:
+        vacancies = Vacancy.objects.order_by('-date')
+
+    context = {
+        'title': 'vacancies',
+        'content': vacancies
+    }
+    return render(request, 'see.html', context)
+
+
+def seeResumes(request):
+    if request.method == 'POST':
+        search = request.POST.get('search')
+        resumes = Resume.objects.filter(specialty__contains=search)
+
+    else:
+        resumes = Resume.objects.order_by('-date')
+
+    context = {
+        'title': 'resumes',
+        'content': resumes
+    }
+    return render(request, 'see.html', context)

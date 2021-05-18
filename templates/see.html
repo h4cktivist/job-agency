@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Job Agency | Home</title>
+    <title>Job Agency | See {{ title }}</title>
     <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/fonts/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static '/fonts/ionicons.min.css' %}">
@@ -20,20 +20,22 @@
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Job Agency</h2>
-                    <h2 class="text-center">Look for vacancies</h2>
-                <div class="input-group">
-                  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                  <button type="button" class="btn btn-outline-primary">Find</button>
-                </div>
+                    <h2 class="text-center">Look for {{ title }}</h2>
+                <form method="post">
+                    <div class="input-group">
+                          <input type="search" class="form-control rounded" name="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                          <button type="submit" class="btn btn-outline-primary">Find</button>
+                    </div>
+                </form>
                 <br>
             </div>
 
-        {% for v in vacancies %}
+        {% for i in content %}
             <div class="card">
-                <h5 align="center" class="card-header">{{ v }}</h5>
+                <h5 align="center" class="card-header">{{ i }}</h5>
                 <div class="card-body">
-                  <p class="card-text">{{ v.desc }}</p>
-                  <span class="badge rounded-pill bg-info text-dark">{{ v.salary }}</span>
+                  <p class="card-text">{{ i.desc }}</p>
+                  <span class="badge rounded-pill bg-info text-dark">{{ i.salary }}</span>
                   <a href="#" class="btn btn-outline-primary btn-sm">Respond</a>
                 </div>
             </div>

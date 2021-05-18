@@ -14,7 +14,7 @@ class Resume(models.Model):
     gender = models.CharField('Gender', max_length=6, choices=GENDERS)
     city = models.CharField('City', max_length=50)
     phone = models.CharField('Phone number', max_length=20)
-    about = models.TextField('About')
+    desc = models.TextField('About')
     experience = models.IntegerField('Years of experience')
     date = models.DateTimeField('Date of placing')
 
