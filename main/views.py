@@ -80,3 +80,21 @@ def seeResumes(request):
         'content': resumes
     }
     return render(request, 'see.html', context)
+
+
+def detailResume(request, id):
+    resume = Resume.objects.get(id=id)
+
+    context = {
+        'resume': resume
+    }
+    return render(request, 'detail-resume.html', context)
+
+
+def detailVacancy(request, id):
+    vacancy = Vacancy.objects.get(id=id)
+
+    context = {
+        'vacancy': vacancy
+    }
+    return render(request, 'detail-vacancy.html', context)

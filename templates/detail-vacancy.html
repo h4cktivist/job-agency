@@ -6,45 +6,41 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Job Agency | See {{ title }}</title>
+    <title>Job Agency | {{ vacancy.position }}</title>
     <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static '/fonts/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static '/fonts/ionicons.min.css' %}">
-    <link rel="stylesheet" href="{% static '/css/Article-List.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Features-Clean.css' %}">
     <link rel="stylesheet" href="{% static '/css/Footer-Basic.css' %}">
     <link rel="stylesheet" href="{% static '/css/Social-Icons.css' %}">
 </head>
 
 <body>
-    <section class="article-list">
+    <section class="features-clean">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center">Job Agency</h2>
-                    <h2 class="text-center">Look for {{ title }}</h2>
-                <form method="post">
-                    <div class="input-group">
-                          <input type="search" class="form-control rounded" name="search" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                          <button type="submit" class="btn btn-outline-primary">Find</button>
-                    </div>
-                </form>
-                <br>
+                <h2 class="text-center">{{ vacancy }}</h2>
+                <h4 class="text-center">{{ vacancy.desc }}</h4>
             </div>
-
-        {% for i in content %}
-            <div class="card">
-                <h5 align="center" class="card-header">{{ i }}</h5>
-                <div class="card-body">
-                  <p class="card-text">{{ i.desc }}</p>
-                  <span class="badge rounded-pill bg-info text-dark">{{ i.salary }}</span>
-                   {% if title == 'vacancies' %}
-                        <a href="{% url 'detail-vacancy' i.id %}" class="btn btn-outline-primary btn-sm">Respond</a>
-                   {% else %}
-                        <a href="{% url 'detail-resume' i.id %}" class="btn btn-outline-primary btn-sm">See</a>
-                   {% endif %}
+            <div class="row features">
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-map-marker icon"></i>
+                    <h3 class="name">{{ vacancy.adress }}</h3>
+                    <p class="description">Where you can find us</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-list-alt icon"></i>
+                    <h3 class="name">{{ vacancy.position }}</h3>
+                    <p class="description">Who we are looking for </p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-leaf icon"></i>
+                    <h3 class="name">{{ vacancy.salary }}</h3>
+                    <p class="description">Salary we can offer</p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-phone icon"></i>
+                    <h3 class="name">{{ vacancy.contact }}</h3>
+                    <p class="description">Contact Us</p>
                 </div>
             </div>
-            <br>
-        {% endfor %}
+        </div>
 
         <footer class="footer-basic">
             <div class="social"><a href="https://www.instagram.com"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a></div>
@@ -57,7 +53,6 @@
             <p class="copyright">JobAgency © 2021</p>
         </footer>
     </section>
-    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
 </body>
 
 </html>
