@@ -1,3 +1,4 @@
+from main.models import Resume
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.models import User
@@ -17,7 +18,7 @@ def register(request):
         u = User(first_name=first_name, last_name=last_name, email=email, password=password, username=username)
         u.save()
 
-        return redirect('index')
+        return redirect('login')
 
     else:
         return render(request, 'register.html')
@@ -41,3 +42,18 @@ def logIn(request):
 def logOut(request):
     logout(request)
     return redirect('login')
+
+
+def profile(request):
+    user = request.user
+
+    try:
+        resume = Resume.objects.get(author=user)
+    except:
+        return redirect('place-resume')
+
+    context = {
+        'u': user,
+        'r': resume
+    }
+    return render(request, 'profile.html', context)

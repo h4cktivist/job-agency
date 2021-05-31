@@ -25,7 +25,7 @@ def placeResume(request):
 
         resume = Resume(author=author, date_of_birth=date_of_birth, gender=gender,
                         specialty=speciality, city=city, phone=phone,
-                        about=about, experience=experience, date=date)
+                        desc=about, experience=experience, date=date)
         resume.save()
         return redirect('index')
 

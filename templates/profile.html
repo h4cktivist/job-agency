@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Job Agency | {{ u.first_name }} {{ u.last_name }}</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Article-List.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Footer-Basic.css' %}">
+    <link rel="stylesheet" href="{% static '/css/Social-Icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+
+<body>
+    <section class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Job Agency | Profile</h2>
+            </div>
+        </div>
+
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{ u.first_name }} {{ u.last_name }}
+                                    </h5>
+                                    <h6>
+                                        {{ r.specialty }}
+                                    </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>DATE OF BIRTH</p>
+                            <a href="">{{ r.date_of_birth }}</a><br/>
+                            <p>GENDER</p>
+                            <a href="">{{ r.gender }}</a><br/>
+                            <p>DATE OF REGISTRATION</p>
+                            <a href="">{{ r.date }}</a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>First Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ u.first_name }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Last Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ u.last_name }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ u.email }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ r.phone }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience of work</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ r.experience }} year(s)</p>
+                                            </div>
+                                        </div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+
+        <footer class="footer-basic">
+            <div class="social"><a href="https://www.instagram.com"><i class="icon ion-social-instagram"></i></a><a href="https://twitter.com"><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'login' %}">Log In</a></li>
+                <li class="list-inline-item"><a href="{% url 'register' %}">Sign Up</a></li>
+                <li class="list-inline-item"><a href="{% url 'logout' %}">Log Out</a></li>
+            </ul>
+            <p class="copyright">JobAgency © 2021</p>
+        </footer>
+    </section>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

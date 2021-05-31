@@ -21,7 +21,7 @@
             <div class="intro">
                 <h2 class="text-center">Job Agency</h2>
                 {% if request.user.username %}
-                    <h2 class="text-center">You are logged in as {{ request.user.username }}</h2>
+                    <h2 class="text-center">You are logged in as <a href="{% url 'profile' %}">{{ request.user.username }}</a></h2>
                 {% else %}
                     <h2 class="text-center">Pleace login or sign up</h2>
                 {% endif %}
