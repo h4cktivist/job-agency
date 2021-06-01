@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 
 from django.contrib import messages
 
+from django.core.exceptions import ObjectDoesNotExist
+
 
 def register(request):
     if request.method == 'POST':
@@ -33,7 +35,7 @@ def logIn(request):
             u = User.objects.get(email=email, password=password)
             login(request, u)
             return redirect('index')
-        except:
+        except ObjectDoesNotExist:
             messages.info(request, 'Email or password is incorrect!')
 
     return render(request, 'login.html')
@@ -49,7 +51,7 @@ def profile(request):
 
     try:
         resume = Resume.objects.get(author=user)
-    except:
+    except ObjectDoesNotExist:
         return redirect('place-resume')
 
     context = {
