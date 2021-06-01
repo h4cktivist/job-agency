@@ -21,9 +21,7 @@ def register(request):
         u.save()
 
         return redirect('login')
-
-    else:
-        return render(request, 'register.html')
+    return render(request, 'register.html')
 
 
 def logIn(request):
